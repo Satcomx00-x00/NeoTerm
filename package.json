@@ -1,0 +1,56 @@
+{
+  "name": "neoterm-ui",
+  "version": "0.1.0",
+  "description": "A terminal-inspired UI component library for Next.js — CRT aesthetics, neon accents, monospace typography.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles": "./src/styles/globals.css"
+  },
+  "files": [
+    "dist",
+    "src/styles"
+  ],
+  "scripts": {
+    "dev": "next dev --port 4000",
+    "build:lib": "tsc -p tsconfig.build.json",
+    "build:next": "next build",
+    "build": "bun run build:lib",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.5.0",
+    "lucide-react": "^0.577.0",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-separator": "^1.1.8",
+    "recharts": "^3.8.0",
+    "motion": "^12.18.1"
+  },
+  "devDependencies": {
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "@types/node": "^25.3.5",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3",
+    "@tailwindcss/postcss": "^4.2.1",
+    "tailwindcss": "^4.2.1",
+    "swr": "^2.4.1"
+  }
+}

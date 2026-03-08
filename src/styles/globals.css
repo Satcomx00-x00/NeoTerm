@@ -1,0 +1,403 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════
+   NeoTerm — Terminal Trading Dashboard Design System
+   CRT terminal · Monospace · Neon accents
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --background: #e8e8e8;
+  --foreground: #1a1a2e;
+  --card: #f0f0f0;
+  --card-foreground: #1a1a2e;
+  --popover: #f0f0f0;
+  --popover-foreground: #1a1a2e;
+  --primary: #1a1a2e;
+  --primary-foreground: #e8e8e8;
+  --secondary: #d8d8d8;
+  --secondary-foreground: #1a1a2e;
+  --muted: #d0d0d0;
+  --muted-foreground: #666680;
+  --accent: #d0d0d0;
+  --accent-foreground: #1a1a2e;
+  --destructive: #ff3535;
+  --destructive-foreground: #ffffff;
+  --border: #c0c0c0;
+  --input: #c0c0c0;
+  --ring: #39ff14;
+  --radius: 2px;
+  --chart-1: #39ff14;
+  --chart-2: #00d4ff;
+  --chart-3: #ffa629;
+  --chart-4: #ff2d95;
+  --chart-5: #a78bfa;
+  --success: #39ff14;
+  --success-foreground: #000000;
+  --warning: #ffa629;
+  --warning-foreground: #000000;
+  --neon: #39ff14;
+  --cyan: #00d4ff;
+  --magenta: #ff2d95;
+  --amber: #ffa629;
+}
+
+.dark {
+  --background: #07070d;
+  --foreground: #f7f8fb;
+  --card: #0d0d15;
+  --card-foreground: #f7f8fb;
+  --popover: #0d0d15;
+  --popover-foreground: #f7f8fb;
+  --primary: #f7f8fb;
+  --primary-foreground: #07070d;
+  --secondary: #12121c;
+  --secondary-foreground: #f7f8fb;
+  --muted: #16161f;
+  --muted-foreground: #a8adc8;
+  --accent: #16161f;
+  --accent-foreground: #f7f8fb;
+  --destructive: #ff3535;
+  --destructive-foreground: #ffffff;
+  --border: #1c1c2e;
+  --input: #1c1c2e;
+  --ring: #39ff14;
+  --radius: 2px;
+  --chart-1: #39ff14;
+  --chart-2: #00d4ff;
+  --chart-3: #ffa629;
+  --chart-4: #ff2d95;
+  --chart-5: #a78bfa;
+  --success: #39ff14;
+  --success-foreground: #000000;
+  --warning: #ffa629;
+  --warning-foreground: #000000;
+  --neon: #39ff14;
+  --cyan: #00d4ff;
+  --magenta: #ff2d95;
+  --amber: #ffa629;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius: var(--radius);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-neon: var(--neon);
+  --color-cyan: var(--cyan);
+  --color-magenta: var(--magenta);
+  --color-amber: var(--amber);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1, "zero" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ─── Terminal panel base ───────────────────────────────── */
+.term-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.term-panel-raised {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 1px var(--border), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* ─── Neon glow effects ─────────────────────────────────── */
+.glow-green { color: #39ff14; text-shadow: 0 0 8px #39ff1466, 0 0 20px #39ff1422; }
+.glow-cyan  { color: #00d4ff; text-shadow: 0 0 8px #00d4ff66, 0 0 20px #00d4ff22; }
+.glow-red   { color: #ff3535; text-shadow: 0 0 8px #ff353566, 0 0 20px #ff353522; }
+.glow-amber { color: #ffa629; text-shadow: 0 0 8px #ffa62966, 0 0 20px #ffa62922; }
+.glow-magenta { color: #ff2d95; text-shadow: 0 0 8px #ff2d9566, 0 0 20px #ff2d9522; }
+
+.glow-border-green { box-shadow: 0 0 6px #39ff1433, inset 0 0 6px #39ff1411; }
+.glow-border-cyan  { box-shadow: 0 0 6px #00d4ff33, inset 0 0 6px #00d4ff11; }
+
+/* ─── LED indicator dots ────────────────────────────────── */
+.led {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.led-green  { background: #39ff14; box-shadow: 0 0 4px #39ff14, 0 0 8px #39ff1466; }
+.led-red    { background: #ff3535; box-shadow: 0 0 4px #ff3535, 0 0 8px #ff353566; }
+.led-amber  { background: #ffa629; box-shadow: 0 0 4px #ffa629, 0 0 8px #ffa62966; }
+.led-cyan   { background: #00d4ff; box-shadow: 0 0 4px #00d4ff, 0 0 8px #00d4ff66; }
+.led-magenta { background: #ff2d95; box-shadow: 0 0 4px #ff2d95, 0 0 8px #ff2d9566; }
+.led-off    { background: #2a2a3a; box-shadow: none; }
+
+/* ─── Scanline overlay ──────────────────────────────────── */
+.scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+/* ─── Dot grid pattern background ───────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, #1c1c2e 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Cursor blink ──────────────────────────────────────── */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Pulse animation for live indicators ───────────────── */
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* ─── Shimmer for skeleton loading ──────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, var(--muted) 50%, transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ─── Animate-in (fade + slide) ─────────────────────────── */
+@keyframes animate-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes animate-in-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes animate-in-left {
+  from { opacity: 0; transform: translateX(12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes animate-in-right {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes animate-in-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-in          { animation: animate-in-up 0.3s ease-out both; }
+.animate-in-down     { animation: animate-in-down 0.3s ease-out both; }
+.animate-in-left     { animation: animate-in-left 0.3s ease-out both; }
+.animate-in-right    { animation: animate-in-right 0.3s ease-out both; }
+.animate-in-scale    { animation: animate-in-scale 0.25s ease-out both; }
+.animate-in-delay-1  { animation-delay: 50ms; }
+.animate-in-delay-2  { animation-delay: 100ms; }
+.animate-in-delay-3  { animation-delay: 150ms; }
+.animate-in-delay-4  { animation-delay: 200ms; }
+.animate-in-delay-5  { animation-delay: 300ms; }
+
+/* ─── Typewriter effect ─────────────────────────────────── */
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--neon);
+  animation: typewriter 2s steps(40) 0.5s both, blink 0.75s step-end infinite;
+}
+
+/* ─── Glow pulse for buttons & cards ────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 4px #39ff1433; }
+  50%      { box-shadow: 0 0 16px #39ff1466, 0 0 30px #39ff1422; }
+}
+.glow-pulse-green  { animation: glow-pulse 2s ease-in-out infinite; }
+
+@keyframes glow-pulse-cyan-kf {
+  0%, 100% { box-shadow: 0 0 4px #00d4ff33; }
+  50%      { box-shadow: 0 0 16px #00d4ff66, 0 0 30px #00d4ff22; }
+}
+.glow-pulse-cyan   { animation: glow-pulse-cyan-kf 2s ease-in-out infinite; }
+
+@keyframes glow-pulse-magenta-kf {
+  0%, 100% { box-shadow: 0 0 4px #ff2d9533; }
+  50%      { box-shadow: 0 0 16px #ff2d9566, 0 0 30px #ff2d9522; }
+}
+.glow-pulse-magenta { animation: glow-pulse-magenta-kf 2s ease-in-out infinite; }
+
+/* ─── Spin & rotate ─────────────────────────────────────── */
+@keyframes neo-spin {
+  to { transform: rotate(360deg); }
+}
+.neo-spin { animation: neo-spin 1s linear infinite; }
+
+/* ─── Matrix rain (for decoration) ──────────────────────── */
+@keyframes matrix-fall {
+  0%   { transform: translateY(-100%); opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+.matrix-fall {
+  animation: matrix-fall var(--fall-duration, 4s) linear infinite;
+  animation-delay: var(--fall-delay, 0s);
+}
+
+/* ─── Count-up number reveal ────────────────────────────── */
+@keyframes number-reveal {
+  from { opacity: 0; transform: translateY(6px) scale(0.9); filter: blur(4px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+.number-reveal { animation: number-reveal 0.4s ease-out both; }
+
+/* ─── Progress bar stripe ───────────────────────────────── */
+@keyframes stripe-move {
+  0%   { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+.progress-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,0.1) 25%, transparent 25%,
+    transparent 50%, rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0.1) 75%, transparent 75%
+  );
+  background-size: 40px 40px;
+  animation: stripe-move 1s linear infinite;
+}
+
+/* ─── Bar separator ─────────────────────────────────────── */
+.bar-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--border);
+  opacity: 0.6;
+}
+
+/* ─── Section label ─────────────────────────────────────── */
+.section-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  opacity: 0.6;
+}
+
+/* ─── Neon underline ────────────────────────────────────── */
+.neon-underline {
+  position: relative;
+}
+.neon-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--neon);
+  box-shadow: 0 0 4px var(--neon), 0 0 8px var(--neon);
+  transition: opacity 0.2s;
+}
+
+/* ─── Glass morphism ────────────────────────────────────── */
+.glass {
+  background: rgba(13, 13, 21, 0.6);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Gradient text ─────────────────────────────────────── */
+.gradient-text-neon {
+  background: linear-gradient(135deg, #39ff14, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-fire {
+  background: linear-gradient(135deg, #ff2d95, #ffa629);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-ice {
+  background: linear-gradient(135deg, #00d4ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Ripple effect ─────────────────────────────────────── */
+@keyframes ripple {
+  0%   { transform: scale(0); opacity: 0.4; }
+  100% { transform: scale(4); opacity: 0; }
+}
+.ripple-container { position: relative; overflow: hidden; }
+.ripple-container .ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+}
+
+/* ─── Noise texture overlay ─────────────────────────────── */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9997;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
