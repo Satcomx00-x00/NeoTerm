@@ -148,8 +148,9 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           NeoTerm UI
         </Link>
         <nav className="flex gap-4 text-sm text-muted-foreground">
-          <Link href="/docs" className="hover:text-foreground transition-colors">Docs</Link>
-          <Link href="/" className="hover:text-foreground transition-colors">Showcase</Link>
+          <Link href="/docs"      className="hover:text-foreground transition-colors">Docs</Link>
+          <Link href="/showcase"   className="hover:text-foreground transition-colors">Showcase</Link>
+          <Link href="/"           className="hover:text-foreground transition-colors">Home</Link>
           <a href="https://github.com/Satcomx00-x00/NeoTerm" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub</a>
         </nav>
       </header>
