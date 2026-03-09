@@ -95,6 +95,7 @@ export default function ShowcasePage() {
   const [switchOn, setSwitchOn] = useState(true);
   const [sliderVal, setSliderVal] = useState(65);
   const [modalOpen, setModalOpen] = useState(false);
+  const [checkboxOn, setCheckboxOn] = useState(false);
   const { toasts, addToast, dismissToast } = useToast();
   const [step, setStep] = useState(1);
 
@@ -174,13 +175,13 @@ export default function ShowcasePage() {
             <Led color="cyan" /> <Led color="magenta" /> <Led color="off" />
           </Row>
           <Row>
-            <StatusDot status="online" /> online
+            <StatusDot status="success" /> online
             <StatusDot status="warning" /> warning
             <StatusDot status="error" /> error
-            <StatusDot status="offline" /> offline
+            <StatusDot status="neutral" /> offline
           </Row>
           <Row>
-            <StatusBadge status="online">Connected</StatusBadge>
+            <StatusBadge status="success">Connected</StatusBadge>
             <StatusBadge status="warning">Degraded</StatusBadge>
             <StatusBadge status="error">Down</StatusBadge>
           </Row>
@@ -292,9 +293,9 @@ export default function ShowcasePage() {
         {/* KPI Cards */}
         <Section title="KPI Cards">
           <div className="grid grid-cols-3 gap-3">
-            <KpiCard label="Revenue" value="$42,069" trend={12.5} sparkData={sparkData} />
-            <KpiCard label="Latency" value="24ms" trend={-8.3} />
-            <KpiCard label="Uptime" value="99.97%" trend={0.02} />
+            <KpiCard label="Revenue" value="$42,069" change={12.5} trend="up" sparkData={sparkData.map(d => d.value)} />
+            <KpiCard label="Latency" value="24ms" change={-8.3} trend="down" />
+            <KpiCard label="Uptime" value="99.97%" change={0.02} trend="up" />
           </div>
         </Section>
 
@@ -315,8 +316,8 @@ export default function ShowcasePage() {
             />
           </Row>
           <Row>
-            <Switch checked={switchOn} onChange={setSwitchOn} label="Dark mode" />
-            <Checkbox label="Accept terms" />
+            <Switch checked={switchOn} onCheckedChange={setSwitchOn} label="Dark mode" />
+            <Checkbox checked={checkboxOn} onChange={setCheckboxOn} label="Accept terms" />
           </Row>
           <Row>
             <div className="w-64">
@@ -457,7 +458,7 @@ export default function ShowcasePage() {
             <Skeleton className="h-8 w-8 rounded-full" />
           </Row>
           <Divider label="SECTION" />
-          <Tooltip text="This is a tooltip" position="top">
+          <Tooltip content="This is a tooltip" side="top">
             <span className="text-[11px] text-cyan cursor-help underline decoration-dotted">Hover me</span>
           </Tooltip>
           <div className="relative h-8 w-40 border border-border/20 rounded overflow-hidden">
